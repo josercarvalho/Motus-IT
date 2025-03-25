@@ -35,7 +35,7 @@ public class Program
             {
                 c.SwaggerDoc("v1", new OpenApiInfo 
                 { 
-                    Title = "Test API for AMBEV DEVELOPER EVOLUTION", 
+                    Title = "Test API AMBEV DEVELOPER EVOLUTION", 
                     Version = "v1",
                     Description = "API built for testing with Motu's IT.",
                     Contact = new OpenApiContact

@@ -25,8 +25,8 @@ public class CreateCartTests
 
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnCreateCartResult_WhenCommandIsValid()
+    [Fact(DisplayName = "Given Handle Should Return Create Cart Result When Command Is Valid")]
+    public async Task GivenHandleShouldReturnCreateCartResultWhenCommandIsValid()
     {
         // Arrange
         var products = new List<CreateCartProductResult>
@@ -59,8 +59,8 @@ public class CreateCartTests
         _mapperMock.Verify(m => m.Map<CreateCartResult>(cart), Times.Once);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenValidationFails()
+    [Fact(DisplayName = "Given Handle Should Return Null When Validation Fails")]
+    public async Task GivenHandleShouldReturnNullWhenValidationFails()
     {
         // Arrange
         var products = new List<CreateCartProductResult>

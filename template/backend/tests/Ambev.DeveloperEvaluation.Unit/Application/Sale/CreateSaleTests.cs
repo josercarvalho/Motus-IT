@@ -30,8 +30,8 @@ public class CreateSaleTests
 
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnCreateSaleResult_WhenCommandIsValid()
+    [Fact(DisplayName = "Given Handle Should Return Create Sale Result When Command Is Valid")]
+    public async Task GivenHandleShouldReturnCreateSaleResultWhenCommandIsValid()
     {
         // Arrange
         var product = new Product { Id = 10, Title = "Product A", Price = 100, Category= "Category", Description= "Descreption" };
@@ -79,8 +79,8 @@ public class CreateSaleTests
         _repoMock.Verify(r => r.CreateSale(It.IsAny<Sale>()), Times.Once);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenValidationFails()
+    [Fact(DisplayName = "Given Handle Should Return Null When Validation Fails")]
+    public async Task GivenHandleShouldReturnNullWhenValidationFails()
     {
         // Arrange
         var command = new CreateSaleCommand
@@ -99,8 +99,8 @@ public class CreateSaleTests
         result.Should().BeNull();
         _repoMock.Verify(r => r.CreateSale(It.IsAny<Sale>()), Times.Never);
     }
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenCartIsEmpty()
+    [Fact(DisplayName = "Given Handle Should Return Null When Cart Is Empty")]
+    public async Task GivenHandleShouldReturnNullWhenCartIsEmpty()
     {
         // Arrange
         var command = new CreateSaleCommand

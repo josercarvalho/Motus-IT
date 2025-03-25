@@ -26,22 +26,22 @@ public class DependencyInjectionTests
     }
 
 
-    [Fact]
-    public void Should_Resolve_CartRepository()
+    [Fact(DisplayName = "Should Resolve Cart Repository")]
+    public void ShouldResolveCartRepository()
     {
         var repository = _serviceProvider.GetService<ICartRepository>();
         Assert.NotNull(repository); // Test passes if CartRepository is correctly registered
     }
 
-    [Fact]
-    public void Should_Resolve_SaleRepository()
+    [Fact(DisplayName = "Should Resolve Sale Repository")]
+    public void ShouldResolveSaleRepository()
     {
         var repository = _serviceProvider.GetService<ISaleRepository>();
         Assert.NotNull(repository); // Test passes if SaleRepository is correctly registered
     }
 
-    [Fact]
-    public void Should_Resolve_ProductRepository()
+    [Fact(DisplayName = "Should Resolve Product Repository")]
+    public void ShouldResolveProductRepository()
     {
         var repository = _serviceProvider.GetService<IProductRepository>();
         Assert.NotNull(repository); // Test passes if ProductRepository is correctly registered

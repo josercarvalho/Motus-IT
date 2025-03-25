@@ -35,8 +35,8 @@ public class ProductsTests
         _controller = new ProductsController(_mapperMock.Object, _loggerMock.Object, _mediatorMock.Object);
     }
 
-    [Fact]
-    public async Task GetAll_ShouldReturnOk_WhenDataExists()
+    [Fact(DisplayName = "Given Get All Should Return Ok When Data Exists")]
+    public async Task GivenGetAllShouldReturnOkWhenDataExists()
     {
         // Arrange
         var products = new List<Product>
@@ -70,8 +70,8 @@ public class ProductsTests
         }
     }
 
-    [Fact]
-    public async Task GetById_ShouldReturnOk_WhenProductExists()
+    [Fact(DisplayName = "Given Id Should Return Ok When Product Exists")]
+    public async Task GivenIdShouldReturnOkWhenProductExists()
     {
         // Arrange
         var productId = 1;
@@ -99,8 +99,8 @@ public class ProductsTests
         apiResponse.Data.Should().BeEquivalentTo(response);
     }
 
-    [Fact]
-    public async Task Create_ShouldReturnCreated_WhenValidRequest()
+    [Fact(DisplayName = "Should Return Dado Created When Valid Request")]
+    public async Task CreateShouldReturnCreatedWhenValidRequest()
     {
         // Arrange
         var request = new CreateProductRequest
@@ -141,8 +141,8 @@ public class ProductsTests
         apiResponse.Data.Should().BeEquivalentTo(response);
     }
 
-    [Fact]
-    public async Task Delete_ShouldReturnCreated_WhenProductDeleted()
+    [Fact(DisplayName = "Should Return true When Product Deleted")]
+    public async Task DeleteShouldReturnTrueWhenProductDeleted()
     {
         // Arrange
         var productId = 1;
@@ -162,8 +162,8 @@ public class ProductsTests
         apiResponse.Message.Should().Be("Product deleted successfully");
     }
 
-    [Fact]
-    public async Task GetAllCategories_ShouldReturnOk_WhenCategoriesExist()
+    [Fact(DisplayName = "Get All Categories Should Return Ok When Categories Exist")]
+    public async Task GetAllCategoriesShouldReturnOkWhenCategoriesExist()
     {
         // Arrange
         var categories = new List<string> { "Category1", "Category2" };
@@ -185,8 +185,8 @@ public class ProductsTests
         apiResponse.Data.Should().BeEquivalentTo(categories);
     }
 
-    [Fact]
-    public async Task GetByCategory_ShouldReturnOk_WhenCategoryExists()
+    [Fact(DisplayName = "Get By Category Should Return Ok When Category Exists")]
+    public async Task GetByCategoryShouldReturnOkWhenCategoryExists()
     {
         // Arrange
         var category = "TestCategory";

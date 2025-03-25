@@ -24,8 +24,8 @@ public class UpdateProductTests
         _handler = new UpdateProductHandler(_repoMock.Object, _mapperMock.Object, _loggerMock.Object);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnUpdateProductResult_WhenCommandIsValid()
+    [Fact(DisplayName = "Given Handle Should Return Update Product Result When Command Is Valid")]
+    public async Task GivenHandleShouldReturnUpdateProductResultWhenCommandIsValid()
     {
         // Arrange
         var command = new UpdateProductCommand
@@ -74,8 +74,8 @@ public class UpdateProductTests
 
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenValidationFails()
+    [Fact(DisplayName = "Given Handle Should Return Null When Validation Fails")]
+    public async Task GivenHandleShouldReturnNullWhenValidationFails()
     {
         // Arrange
         var command = new UpdateProductCommand

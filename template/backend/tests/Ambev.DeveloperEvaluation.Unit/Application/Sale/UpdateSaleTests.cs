@@ -34,8 +34,8 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Sales
                 _handler = new UpdateSaleHandler(_repoMock.Object, _mapperMock.Object, _loggerMock.Object, _mediatorMock.Object);
             }
 
-            [Fact]
-            public async Task Handle_ShouldReturnNull_WhenSaleNotFound()
+            [Fact(DisplayName = "Given Handle Should Return Null When Sale Not Found")]
+            public async Task GivenHandleShouldReturnNullWhenSaleNotFound()
             {
                 // Arrange
                 var command = new UpdateSaleCommand { SaleNumber = 1 };
@@ -50,8 +50,8 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Sales
                 _repoMock.Verify(r => r.UpdateSale(It.IsAny<Sale>()), Times.Never);
             }
 
-            [Fact]
-            public async Task Handle_ShouldUpdateBasicProperties_WhenCartIdRemainsSame()
+            [Fact(DisplayName = "Given Handle Should Update Basic Properties When Cart Id Remains Same")]
+            public async Task GivenHandleShouldUpdateBasicPropertiesWhenCartIdRemainsSame()
             {
                 // Arrange
                 var existingSale = new Sale
@@ -91,8 +91,8 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Sales
                 _repoMock.Verify(r => r.UpdateSale(It.IsAny<Sale>()), Times.Once);
             }
 
-            [Fact]
-            public async Task Handle_ShouldReturnNull_WhenNewCartIsInvalid()
+            [Fact(DisplayName = "Given Handle Should Return Null When New Cart Is Invalid")]
+            public async Task GivenHandleShouldReturnNullWhenNewCartIsInvalid()
             {
                 // Arrange
                 var existingSale = new Sale
@@ -120,8 +120,8 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Sales
                 _repoMock.Verify(r => r.UpdateSale(It.IsAny<Sale>()), Times.Never);
             }
 
-            [Fact]
-            public async Task Handle_ShouldUpdateSaleWithNewCart_WhenCartIdChanges()
+            [Fact(DisplayName = "Given Handle Should Update SaleWith New Cart When Cart Id Changes")]
+            public async Task GivenHandleShouldUpdateSaleWithNewCartWhenCartIdChanges()
             {
                 // Arrange
                 var product = new Product { Id = 10, Title = "Product A", Price = 100 };
@@ -175,8 +175,8 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Sales
                 _repoMock.Verify(r => r.UpdateSale(It.IsAny<Sale>()), Times.Once);
             }
 
-            [Fact]
-            public async Task Handle_ShouldReturnNull_WhenProductNotFound()
+            [Fact(DisplayName = "Given Handle Should Return Null When Product Not Found")]
+            public async Task GivenHandleShouldReturnNullWhenProductNotFound()
             {
                 // Arrange
                 var newCart = new Cart

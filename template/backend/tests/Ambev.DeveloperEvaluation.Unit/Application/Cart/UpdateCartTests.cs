@@ -25,7 +25,7 @@ public class UpdateCartTests
         _handler = new UpdateCartHandler(_repoMock.Object, _mapperMock.Object, _loggerMock.Object);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Given Handle Should Return Update Cart Result When Command Is Valid")]
     public async Task Handle_ShouldReturnUpdateCartResult_WhenCommandIsValid()
     {
         // Arrange
@@ -83,8 +83,8 @@ public class UpdateCartTests
     }
 
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenValidationFails()
+    [Fact(DisplayName = "Given Handle Should Return Null When Validation Fails")]
+    public async Task GivenHandleShouldReturnNullWhenValidationFails()
     {
         // Arrange
         var products = new List<UpdateCartProductResult>
@@ -103,8 +103,8 @@ public class UpdateCartTests
         _repoMock.Verify(r => r.UpdateCartAsync(It.IsAny<Cart>()), Times.Never);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenCartNotFound()
+    [Fact(DisplayName = "Given Handle Should Return Null When Cart Not Found")]
+    public async Task GivenHandleShouldReturnNullWhenCartNotFound()
     {
         // Arrange
         var products = new List<UpdateCartProductResult>
@@ -126,8 +126,8 @@ public class UpdateCartTests
         _repoMock.Verify(r => r.UpdateCartAsync(It.IsAny<Cart>()), Times.Never);
     }
 
-    [Fact]
-    public async Task Handle_ShouldUpdateExistingProducts_WhenProductsAlreadyExist()
+    [Fact(DisplayName = "Given Handle Should Update Existing Products When Products Already Exist")]
+    public async Task HandleShouldUpdateExistingProductsWhenProductsAlreadyExist()
     {
         // Arrange
         var cartId = 1;
@@ -162,8 +162,8 @@ public class UpdateCartTests
         result.Products.Should().Contain(p => p.ProductId == 1 && p.Quantity == 5);
     }
 
-    [Fact]
-    public async Task Handle_ShouldRemoveProducts_WhenProductsNotInUpdateList()
+    [Fact(DisplayName = "Given Handle Should Remove Products When Products Not InUpdate List")]
+    public async Task GivenHandleShouldRemoveProductsWhenProductsNotInUpdateList()
     {
         // Arrange
         var cartId = 1;

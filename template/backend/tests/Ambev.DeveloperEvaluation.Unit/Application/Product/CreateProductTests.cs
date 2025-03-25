@@ -22,8 +22,8 @@ public class CreateProductTests
         _handler = new CreateProductHandler(_repoMock.Object, _mapperMock.Object);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnCreateProductResult_WhenCommandIsValid()
+    [Fact(DisplayName = "Given Handle Should Return Create Product Result When Command Is Valid")]
+    public async Task GivenHandleShouldReturnCreateProductResultWhenCommandIsValid()
     {
         // Arrange
         var command = new CreateProductCommand
@@ -59,8 +59,8 @@ public class CreateProductTests
         _mapperMock.Verify(m => m.Map<CreateProductResult>(product), Times.Once);
     }
 
-    [Fact]
-    public async Task Handle_ShouldReturnNull_WhenValidationFails()
+    [Fact(DisplayName = "Given Handle Should Return Null When Validation Fails")]
+    public async Task GivenHandleShouldReturnNullWhenValidationFails()
     {
         // Arrange
         var command = new CreateProductCommand

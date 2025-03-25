@@ -36,7 +36,7 @@ public class CreateUserTests
     /// Tests that a valid user creation request is handled successfully.
     /// </summary>
     [Fact(DisplayName = "Given valid user data When creating user Then returns success response")]
-    public async Task Handle_ValidRequest_ReturnsSuccessResponse()
+    public async Task GivenHandle_ValidRequest_ReturnsSuccessResponse()
     {
         // Given
         var command = CreateUserTestData.GenerateValidCommand();
@@ -77,7 +77,7 @@ public class CreateUserTests
     /// Tests that an invalid user creation request throws a validation exception.
     /// </summary>
     [Fact(DisplayName = "Given invalid user data When creating user Then throws validation exception")]
-    public async Task Handle_InvalidRequest_ThrowsValidationException()
+    public async Task GivenHandle_InvalidRequest_ThrowsValidationException()
     {
         // Given
         var command = new CreateUserCommand(); // Empty command will fail validation
@@ -93,7 +93,7 @@ public class CreateUserTests
     /// Tests that the password is hashed before saving the user.
     /// </summary>
     [Fact(DisplayName = "Given user creation request When handling Then password is hashed")]
-    public async Task Handle_ValidRequest_HashesPassword()
+    public async Task GivenHandle_ValidRequest_HashesPassword()
     {
         // Given
         var command = CreateUserTestData.GenerateValidCommand();
@@ -129,7 +129,7 @@ public class CreateUserTests
     /// Tests that the mapper is called with the correct command.
     /// </summary>
     [Fact(DisplayName = "Given valid command When handling Then maps command to user entity")]
-    public async Task Handle_ValidRequest_MapsCommandToUser()
+    public async Task GivenHandle_ValidRequest_MapsCommandToUser()
     {
         // Given
         var command = CreateUserTestData.GenerateValidCommand();
